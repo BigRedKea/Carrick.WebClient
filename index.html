@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="CarrickApp">
+<head>
+
+    <meta name="keywords" content="angularjs,test" />
+    <meta name="description" content="Upcoming Events Awards etc." />
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
+    <title>Carrick</title>
+
+    <link rel="icon" href="app/calendar/favicon.ico"/>
+    <link rel="stylesheet" href="content/css/bootstrap.min.css"  />
+    <link rel="stylesheet" href="content/css/site.css"  />
+    <link rel="stylesheet" href="content/css/loading-bar.css"  />
+    <link rel="stylesheet" href="content/css/font-awesome.min.css"  />
+    <link rel="stylesheet" href="content/css/social-buttons.css"  />
+    <link rel="stylesheet" href="content/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css">
+    <link rel="stylesheet" href="content/css/calendarDemo.css"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.Email}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/scoutingevents">Scouting Events</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/badges">Badges</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/refresh">Refresh Token</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron">
+        <div class="container">
+            <div class="page-header text-center">
+                <h1>Carrick</h1>
+            </div>
+            <p>Welcome to Carrick</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div data-ng-view="">
+        </div>
+    </div>
+
+    <hr />
+
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted">Created 2016</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted">Troop Website <a target="_blank" href="http://www.erbium.info/troopcms/"> www.erbium.info/troopcms</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3rd party libraries -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <script src="scripts/loading-bar.min.js"></script>
+
+    <!-- Load app main script -->
+    <script src="app/app.js?v=2"></script>
+
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/scoutingEventsService.js?v=2"></script>
+    <script src="app/services/badgesService.js?v=2"></script>
+    <script src="app/services/tokensManagerService.js?v=2"></script>
+    <!-- Load controllers -->
+    <script src="app/controllers/indexController.js?v=2"></script>
+    <script src="app/controllers/homeController.js?v=2"></script>
+    <script src="app/controllers/loginController.js?v=2"></script>
+    <script src="app/controllers/signupController.js?v=2"></script>
+
+    <script src="app/scoutingevent/scoutingEventController.js?v=2"></script>
+    <script src="app/badge/badgeController.js?v=2"></script>
+    <script src="app/controllers/refreshController.js?v=2"></script>
+    <script src="app/controllers/tokensManagerController.js?v=2"></script>
+    <script src="app/controllers/associateController.js?v=2"></script>
+    <!-- Load custom filters -->
+    <!-- Load custom directives -->
+    <!--http://www.codeproject.com/Articles/784106/AngularJS-Token-Authentication-using-ASP-NET-Web-A-->
+
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+   <!-- <script src="~/Scripts/angular.min.js"></script>
+    //    <script src="~/Scripts/angular-resource.min.js"></script>
+    //    <script src="~/Scripts/underscore.min.js"></script>
+    //    <script src="~/Scripts/angular/main.js"></script>-->
+
+
+
+    <!--<script src="../bower_components/angular/angular.js"></script>-->
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.9.0.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="bower_components/fullcalendar/dist/gcal.js"></script>
+    <script src="app/calendar/calendar.js"></script>
+    <!--<script src="app/calendar/calendarDemo.js"></script>-->
+</body>
+</html>

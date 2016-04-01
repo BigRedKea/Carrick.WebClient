@@ -1,0 +1,49 @@
+﻿
+<div class="panel panel-primary">
+    
+    <div class="panel-heading">Badges</div>
+    <div class="panel-body">
+        <div class="col-md-6">
+            <a class="btn btn-primary" href="#/badges/newbadge"><i class="glyphicon glyphicon-file"></i> New</a>
+        </div>
+        <div class="col-xs-10 col-lg-6 col-md-6">
+            <div class="input-group">
+                <input type="text" id="searchText" class="form-control pull-right" placeholder="Search for..." ng-model="search_txt">
+                <span class="input-group-btn">
+                    <button class="btn btn-default btn-xs" type="button">
+                        <i class="text-muted glyphicon glyphicon-search"></i>
+                    </button>
+                </span>
+            </div><!-- /input-group -->
+       </div><!-- /.col-lg-6 -->
+        <div class="table table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+
+                        <td>Badge Name</td>
+                        <td>Badge Level</td>
+                        <td>Badge Image</td>
+                       
+                        <td>Edit</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="badge in badges | filter:search_txt ">
+                        <td><img ng-src="data:image/JPEG;base64,{{badge.BadgeImage}}"></td>
+                        <td>{{badge.BadgeName}}</td>
+
+                        <td>{{badge.BadgeLevel}}</td>
+
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="#/badges/{{badge.Id}}">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                        </td>-
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>

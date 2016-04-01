@@ -1,0 +1,152 @@
+﻿<div class="panel panel-primary">
+
+    <div class="panel-heading">{{badge.BadgeName}}</div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" id="badgeForm" name="badgeForm">
+
+            <div class="form-group">
+                <label for="Id" class="col-sm-3 control-label">Id</label>
+                <div class="col-sm-6">
+                    <input id="Id" name="Id" class="form-control"
+                           value="{{badge.Id}}" ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="RowGUID" class="col-sm-3 control-label">Row GUID</label>
+                <div class="col-sm-6">
+                    <input id="RowGUID" name="RowGUID" class="form-control"
+                           value="{{badge.RowGUID}}" ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label for="IsDeleted" class="col-sm-3 control-label">Is Deleted</label>
+                <div class="col-sm-6">
+                    <!--<input id="IsDeleted1" name="IsDeleted" class="form-control"
+                           value="{{badge.IsDeleted}}" ng-disabled="true"/>-->
+                    <input id="IsDeleted" name="IsDeleted" type="text"
+                           class="form-control" placeholder="" ng-disabled="true"/>
+                    <i class="glyphicon glyphicon-trash form-control-feedback" ng-show="badge.IsDeleted"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="RowCreated" class="col-sm-3 control-label">Row Created</label>
+                <div class="col-sm-6">
+                    <input id="RowCreated" name="RowCreated" class="form-control"
+                           value="{{badge.RowCreated | date:'yyyy-MMM-dd HH:mm:ss'}}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="RowLastUpdated" class="col-sm-3 control-label">Row Last Updated</label>
+                <div class="col-sm-6">
+                    <input id="RowLastUpdated" name="RowLastUpdated" class="form-control"
+                           value="{{badge.RowLastUpdated|date:'yyyy-MMM-dd HH:mm:ss'}}" ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="BadgeName" class="col-sm-3 control-label">Badge Name</label>
+                <div class="col-sm-6">
+                    <input type="text" id="BadgeName" name="BadgeName" class="form-control"
+                           ng-model="badge.BadgeName" ng-required="true" placeholder="BadgeName"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="BadgeLevel1" class="col-sm-3 control-label">Badge Level</label>
+                <div class="col-sm-6">
+                    <!--<input type="text" id="BadgeLevel" name="BadgeLevel" class="form-control"
+                           ng-model="badge.BadgeLevel" ng-required="true" placeholder="BadgeLevel" />-->
+
+                    <select name="BadgeLevel" id="BadgeLevel1" name="BadgeLevel1" data-ng-model="badge.BadgeLevel"
+                            class="form-control"
+                            data-ng-options="level for level in badgeleveloptions">
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="BadgeImage" class="col-sm-3 control-label">Badge Image</label>
+                <div class="col-sm-6">
+                    <img id="BadgeImage" name="BadgeImage" ng-src="data:image/JPEG;base64,{{badge.BadgeImage}}">
+                    <!-- <input type="text"
+                            data-ng-model="badge.BadgeImage" ng-required="true" placeholder="BadgeImage" ng-disabled="true"/>-->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="BadgeEnabled" class="col-sm-3 control-label">Badge Enabled</label>
+                <div class="col-sm-6">
+                    <input type="checkbox" id="BadgeEnabled" name="BadgeEnabled" class="form-control"
+                           data-ng-model="badge.BadgeEnabled" placeholder="BadgeEnabled"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Stock" class="col-sm-3 control-label">Stock</label>
+                <div class="col-sm-6">
+                    <input type="text" id="Stock" name="Stock" class="form-control"
+                           data-ng-model="badge.Stock" ng-required="true" placeholder="0"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="TargetStock" class="col-sm-3 control-label">Target Stock</label>
+                <div class="col-sm-6">
+                    <input type="text" id="TargetStock" name="TargetStock" class="form-control"
+                           data-ng-model="badge.TargetStock" ng-required="true" placeholder="0"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="YearService" class="col-sm-3 control-label">Years of Service</label>
+                <div class="col-sm-6">
+                    <input type="text" id="YearService" name="YearService" class="form-control"
+                           data-ng-model="badge.YearService" placeholder="0"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="NightsUnderCanvas" class="col-sm-3 control-label">Nights Under Canvas</label>
+                <div class="col-sm-6">
+                    <input type="text" id="NightsUnderCanvas" name="NightsUnderCanvas" class="form-control"
+                           data-ng-model="badge.NightsUnderCanvas" placeholder="0"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Walkabout" class="col-sm-3 control-label">Walkabout</label>
+                <div class="col-sm-6">
+                    <input type="text" id="Walkabout" name="Walkabout" class="form-control"
+                           data-ng-model="badge.Walkabout"  placeholder="0"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-3 col-md-offset-3 col-sm-3 col-sm-offset-3 ">
+                    <button id="cancelSave" name="cancelSave" class="btn btn-warning"
+                            ng-click="cancel()"><i class="glyphicon glyphicon-thumbs-down"></i> Cancel
+                    </button>
+
+                    <button id="submitButton" name="submitButton" class="btn btn-primary"
+                            ng-click="saveBadge()"><i class="glyphicon glyphicon-thumbs-up"></i> Save
+                    </button>
+
+                    <button id="deleteButton" name="submitForm" class="btn btn-danger"
+                            ng-show="isEdit"
+                            ng-click="modalDelete('md',badge)">
+                        <i class="glyphicon glyphicon-trash"></i> Delete
+                    </button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

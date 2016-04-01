@@ -1,0 +1,59 @@
+﻿
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="cancel()" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Delete {{badge.BadgeName}}</h3>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <form class="form-horizontal" role="form" id="badgeForm" name="badgeForm">
+
+                <!--<div class="col-sx-12 col-sm-8 col-md-6 col-lg-6">-->
+                <div class="form-group">
+                    <label class="control-label">Badge Name</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="badge.BadgeName" class="form-control" ng-disabled="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Badge Level</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="badge.badgeLevel" class="form-control" ng-disabled="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Stock</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="badge.stock" class="form-control" ng-disabled="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Badge Sort</label>
+                    <div class="controls">
+                        <input type="text" data-ng-model="badge.badgeSort" class="form-control" ng-disabled="true">
+                    </div>
+                </div>
+
+                <!--</div>-->
+
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-6 pull-left">
+                <div data-ng-show="error" class="text-danger">
+                    <strong data-ng-bind="error"></strong>
+                </div>
+            </div>
+
+            <div class="col-md-6 pull-right">
+                <button class="btn btn-warning" ng-click="cancel()"><i class="glyphicon glyphicon-thumbs-down"></i> Cancel</button>
+                <button class="btn btn-danger" ng-click="ok(badge)"><i class="glyphicon glyphicon-trash"></i> Delete</button>
+                
+            </div>
+        </div>
+    </div>
+
