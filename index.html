@@ -33,8 +33,9 @@
             <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
                 <ul class="nav navbar-nav navbar-right">
                     <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.Email}}</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/scoutingevents">Scouting Events</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/badges">Badges</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/scoutingevent">Scouting Events</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/badge">Badges</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="#/personbadge">My Badges</a></li>
                     <li data-ng-hide="!authentication.isAuth"><a href="#/refresh">Refresh Token</a></li>
                     <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
                     <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
@@ -83,22 +84,30 @@
     <script src="app/app.js?v=2"></script>
 
     <!-- Load services -->
+
+    <script src="app/services/badgeService.js?v=2"></script>
+    <script src="app/services/scoutingEventService.js?v=2"></script>
+    <script src="app/services/personBadgeService.js?v=2"></script>
+
     <script src="app/services/authInterceptorService.js?v=2"></script>
     <script src="app/services/authService.js?v=2"></script>
-    <script src="app/services/scoutingEventsService.js?v=2"></script>
-    <script src="app/services/badgesService.js?v=2"></script>
+
     <script src="app/services/tokensManagerService.js?v=2"></script>
     <!-- Load controllers -->
     <script src="app/controllers/indexController.js?v=2"></script>
     <script src="app/controllers/homeController.js?v=2"></script>
+
+
     <script src="app/controllers/loginController.js?v=2"></script>
     <script src="app/controllers/signupController.js?v=2"></script>
-
-    <script src="app/scoutingevent/scoutingEventController.js?v=2"></script>
-    <script src="app/badge/badgeController.js?v=2"></script>
     <script src="app/controllers/refreshController.js?v=2"></script>
     <script src="app/controllers/tokensManagerController.js?v=2"></script>
     <script src="app/controllers/associateController.js?v=2"></script>
+
+    <script src="app/badge/badgeController.js?v=2"></script>
+    <script src="app/personbadge/personBadgeController.js?v=2"></script>
+    <script src="app/scoutingevent/scoutingEventController.js?v=2"></script>
+
     <!-- Load custom filters -->
     <!-- Load custom directives -->
     <!--http://www.codeproject.com/Articles/784106/AngularJS-Token-Authentication-using-ASP-NET-Web-A-->

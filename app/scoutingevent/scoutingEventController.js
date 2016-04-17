@@ -1,13 +1,13 @@
 ﻿'use strict';
-app.controller('scoutingEventController', ['$scope', 'scoutingEventsService', 'uiCalendarConfig'
-    , function ($scope, scoutingEventsService, uiCalendarConfig) {
+app.controller('scoutingEventController', ['$scope', 'scoutingEventService', 'uiCalendarConfig'
+    , function ($scope, myService, uiCalendarConfig) {
 
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
 
-        scoutingEventsService.getScoutingEvents().then(function (results) {
+        myService.getItems().then(function (results) {
 
             //$scope.scoutingEvents = results.data;
             $scope.events = results.data;
@@ -15,7 +15,7 @@ app.controller('scoutingEventController', ['$scope', 'scoutingEventsService', 'u
 
             //$scope.isNew = !$routeParams.Id;
 
-            $scope.editEvent = function (event) {
+            $scope.editItem = function (event) {
                 $scope.opts = ['on', 'off'];
 
                 if (event === 'new') {
@@ -133,4 +133,91 @@ app.controller('scoutingEventController', ['$scope', 'scoutingEventsService', 'u
         /* event source that pulls from google.com */
         /* http://fullcalendar.io/docs/google_calendar/ */
         /*$scope.eventSource = {        };*/
+    }]);
+
+app.controller('scoutingEventAddController', ['$scope', 'scoutingEventService', '$window',
+    function categoryController($scope, myService, $window) {
+        $scope.item = {};
+        $scope.isEdit = false;
+
+        $scope.cancel = function () {
+            $window.location = "#/scoutingevent";
+        };
+
+        $scope.saveItem = function () {
+
+            if ($scope.DetailForm.$invalid) return;
+            myService.addItem($scope.item)
+                .then(function () {
+                        $window.location = "#/scoutingevent";
+                    },
+                    function () {
+                        //Error
+                    })
+        };
+    }]);
+
+app.controller('scoutingEventEditController', ['$scope', 'scoutingEventService', '$window', '$routeParams',
+    function categoryController($scope, myService, $window, $routeParams) {
+        $scope.item = {};
+        $scope.isEdit = true;
+
+        var lFirstChange = true;
+
+        if ($routeParams.Id) {
+            $scope.item = myService.findItemById($routeParams.Id);
+            $scope.$watchCollection('scoutingevent', function () {
+                if (!lFirstChange) {
+                    $('#deleteButton').hide(400);
+                }
+                lFirstChange = false;
+            });
+        }
+
+        $scope.cancel = function () {
+            $window.location = "#/scoutingevent";
+        };
+
+        $scope.modalDelete = function (size, item) {
+
+            var uibModalInstance = $modal.open({
+                templateUrl: 'app/scoutingevent/views/deleteModal.html',
+                controller: function ($scope, $uibModalInstance, item) {
+                    $scope.item = item;
+                    $scope.cancel = function () {
+                        $uibModalInstance.dismiss('cancel');
+                    };
+
+                    $scope.ok = function (item) {
+                        myService.deleteItem(item.Id)
+                            .then(function () {
+                                    $window.location = "#/scoutingevent";
+                                    $uibModalInstance.close(item);
+                                },
+                                function () {
+                                    //Error
+                                })
+                    };
+                },
+                size: size,
+                resolve: {
+                    item: function () {
+                        return item;
+                    }
+                }
+            });
+        };
+
+        $scope.saveItem = function () {
+            if ($scope.scoutingEventForm.$invalid) return;
+            myService.updateItem($scope.item)
+                .then(function () {
+
+                        $window.location = "#/scoutingevent";
+                    },
+                    function () {
+                        //Error
+                    })
+
+        };
     }]);

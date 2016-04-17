@@ -1,6 +1,0 @@
-C:\Users\WilstonScoutGroup\Downloads\AngularJSAuthentication-master\AngularJSAuthentication-master\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.dll.config
-C:\Users\WilstonScoutGroup\Downloads\AngularJSAuthentication-master\AngularJSAuthentication-master\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.dll
-C:\Users\WilstonScoutGroup\Downloads\AngularJSAuthentication-master\AngularJSAuthentication-master\AngularJSAuthentication.Web\bin\AngularJSAuthentication.Web.pdb
-C:\Users\WilstonScoutGroup\Downloads\AngularJSAuthentication-master\AngularJSAuthentication-master\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.csprojResolveAssemblyReference.cache
-C:\Users\WilstonScoutGroup\Downloads\AngularJSAuthentication-master\AngularJSAuthentication-master\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.dll
-C:\Users\WilstonScoutGroup\Downloads\AngularJSAuthentication-master\AngularJSAuthentication-master\AngularJSAuthentication.Web\obj\Debug\AngularJSAuthentication.Web.pdb

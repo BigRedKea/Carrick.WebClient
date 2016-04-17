@@ -12,7 +12,7 @@
         <div class="row-fluid">
 
             <div>
-                <a data-ng-click="createScoutingEvent" class="btn btn-primary">Create event</a>
+                <a data-ng-click="createItem" class="btn btn-primary">Create event</a>
                 <p class="divHead"></p>
             </div>
 
@@ -32,7 +32,6 @@
                                 <th>Finish</th>
                                 <th>Link</th>
                                 <th>Edit</th>
-                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -50,15 +49,22 @@
                                     {{ s.FinishDateTime | date:'yyyy-MM-dd HH:mm'}}
                                 </td>
                                 <td>
-                                    <div data-ng-show="s.LinkToMoreInformation != null">
-                                        <a data-ng-href="{{ s.LinkToMoreInformation }}"> Link</a>
+                                    <div data-ng-show="s.link != null">
+                                        <a data-ng-href="{{s.link}}"> Link</a>
                                     </div>
+
                                 </td>
-                                <td><a data-ng-click="editScoutingEvent(s.Id)" class="btn btn-xs btn-primary">edit</a>
+
+                                <td>
+                                    <a class="btn btn-primary btn-xs" href="#/scoutingevent/{{ s.Id }}">
+                                        <i class="glyphicon glyphicon-edit"></i>
+                                    </a>
                                 </td>
-                                <td><a data-ng-click="deleteScoutingEvent(s.Id)"
+                                <!--<td><a data-ng-click="editItem(s.Id)" class="btn btn-xs btn-primary">edit</a>
+                                </td>
+                                <td><a data-ng-click="deleteItem(s.Id)"
                                        class="btn btn-xs btn-danger">delete</a>
-                                </td>
+                                </td>-->
                                 <!--<td>
                                    <input type="checkbox" data-ng-model="scoutingEvent.isShipped" disabled="disabled">
                                 </td>-->

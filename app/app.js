@@ -20,30 +20,53 @@ app.config(function ($routeProvider) {
         templateUrl: "app/views/signup.html"
     });
 
-    $routeProvider.when("/scoutingevents", {
+    // Scouting Events
+    $routeProvider.when("/scoutingevent", {
         controller: "scoutingEventController",
-        templateUrl: "app/scoutingevent/views/scoutingevents.html"
+        templateUrl: "app/scoutingevent/views/List.html"
     });
 
-   /* $routeProvider.when('/badges', {
-        controller: "badgeController",
-        templateUrl: "app/badge/views/badgesList.html"
-    });*/
+    $routeProvider.when('/scoutingevent/new', {
+        controller: "scoutingEventAddController",
+        templateUrl: "app/scoutingevent/views/DetailForm.html"
+    });
 
-    $routeProvider.when('/badges', {
-        controller: "crudController",
-        templateUrl: "app/crud/crud.html"
+    $routeProvider.when('/scoutingevent/:Id', {
+        controller: "scoutingEventEditController",
+        templateUrl: "app/scoutingevent/views/DetailForm.html"
+    });
+
+    // Badge
+    $routeProvider.when('/badge', {
+        controller: "badgeController",
+        templateUrl: "app/badge/views/List.html"
     });
     
-
-    $routeProvider.when('/badge/newbadge', {
-        templateUrl: "app/badge/views/badgeForm.html",
-        controller: "badgeAddController"
+    $routeProvider.when('/badge/new', {
+        controller: "badgeAddController",
+        templateUrl: "app/badge/views/DetailForm.html"
     });
 
-    $routeProvider.when('/badges/:Id', {
-        templateUrl: "app/badge/views/badgeForm.html",
-        controller: "badgeEditController"
+    $routeProvider.when('/badge/:Id', {
+        controller: "badgeEditController",
+        templateUrl: "app/badge/views/DetailForm.html"
+    });
+
+
+    // Person Badge
+    $routeProvider.when('/personbadge', {
+        controller: "personBadgeController",
+        templateUrl: "app/personbadge/views/List.html"
+    });   
+    
+    $routeProvider.when('/personbadge/new', {
+        controller: "personBadgeAddController",
+        templateUrl: "app/personbadge/views/DetailForm.html"
+    });
+
+    $routeProvider.when('/personbadge/:Id', {
+        controller: "personBadgeEditController",
+        templateUrl: "app/personBadge/views/DetailForm.html"
     });
 
     $routeProvider.when("/refresh", {

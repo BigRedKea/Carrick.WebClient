@@ -1,16 +1,16 @@
 ﻿
 'use strict';
-app.controller('badgeController', ['$scope', 'badgeService', 
+app.controller('personBadgeController', ['$scope', 'personBadgeService',
     function ($scope,myService) {
 
-        $scope.items = [];
+        $scope.personBadges = [];
         
-        loadData();
+        loadBadgeData();
 
-        function loadData() {
-            myService.getItems()
+        function loadBadgeData() {
+            myService.getItemsForPerson()
             .then(function () {
-                $scope.items = myService.items;
+                $scope.personBadges = myService.personBadges;
             },
                 function () {
                     //Error goes here...
@@ -19,24 +19,23 @@ app.controller('badgeController', ['$scope', 'badgeService',
                     $scope.isBusy = false;
                 });
         }
-        
     }]);
 
-app.controller('badgeAddController', ['$scope', 'badgeService', '$window',
+app.controller('personBadgeAddController', ['$scope', 'personBadgeService', '$window',
     function categoryController($scope, myService, $window) {
         $scope.item = {};
         $scope.isEdit = false;
 
         $scope.cancel = function () {
-            $window.location = "#/badge";
+            $window.location = "#/personbadge";
         };
 
-        $scope.saveItem = function () {
+        $scope.saveBadge = function () {
             
-            if ($scope.badgeForm.$invalid) return;
+            if ($scope.personBadgeForm.$invalid) return;
             myService.addItem($scope.item)
             .then(function () {
-                $window.location = "#/badge";
+                $window.location = "#/personbadge";
             },
             function () {
                 //Error        
@@ -44,7 +43,7 @@ app.controller('badgeAddController', ['$scope', 'badgeService', '$window',
         };
     }]);
 
-app.controller('badgeEditController', ['$scope', 'badgeService', '$window', '$routeParams',
+app.controller('personBadgeEditController', ['$scope', 'personBadgeService', '$window', '$routeParams',
     function categoryController($scope, myService, $window, $routeParams) {
         $scope.item = {};
         $scope.isEdit = true;
@@ -66,7 +65,7 @@ app.controller('badgeEditController', ['$scope', 'badgeService', '$window', '$ro
 
         if ($routeParams.Id) {
             $scope.item = myService.findItemById($routeParams.Id);
-            $scope.$watchCollection('badge', function () {
+            $scope.$watchCollection('personBadge', function () {
                 if (!lFirstChange) {
                     $('#deleteButton').hide(400);
                 }
@@ -75,24 +74,24 @@ app.controller('badgeEditController', ['$scope', 'badgeService', '$window', '$ro
         }
 
         $scope.cancel = function () {
-            $window.location = "#/badge";
+            $window.location = "#/personBadge";
         };
 
-        $scope.modalDelete = function (size, badge) {
+        $scope.modalDelete = function (size, personBadge) {
 
             var uibModalInstance = $modal.open({
-                templateUrl: 'app/badge/views/deleteModal.html',
-                controller: function ($scope, $uibModalInstance, item) {
-                    $scope.item = item;
+                templateUrl: 'app/personBadge/views/deleteModal.html',
+                controller: function ($scope, $uibModalInstance, personBadge) {
+                    $scope.personBadge = personBadge;
                     $scope.cancel = function () {
                         $uibModalInstance.dismiss('cancel');
                     };
 
-                    $scope.ok = function (item) {
-                        myService.deleteItem(item.Id)
+                    $scope.ok = function (badge) {
+                        myService.deleteItem(personBadge.Id)
                         .then(function () {
-                            $window.location = "#/badge";
-                            $uibModalInstance.close(item);
+                            $window.location = "#/personBadge";
+                            $uibModalInstance.close(personBadge);
                         },
                         function () {
                             //Error        
@@ -101,19 +100,19 @@ app.controller('badgeEditController', ['$scope', 'badgeService', '$window', '$ro
                 },
                 size: size,
                 resolve: {
-                    item: function () {
-                        return item;
+                    personBadge: function () {
+                        return personBadge;
                     }
                 }
             });
         };
 
-        $scope.saveItem = function () {
+        $scope.savePersonBadges = function () {
             if ($scope.badgeForm.$invalid) return;
-            myService.updateItem($scope.item)
+            myService.updateItem($scope.personbadge)
             .then(function () {
                 
-                $window.location = "#/badge";
+                $window.location = "#/personBadge";
             },
             function () {
                 //Error        

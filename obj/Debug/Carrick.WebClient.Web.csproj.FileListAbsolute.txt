@@ -1,6 +1,0 @@
-C:\Users\WilstonScoutGroup\Documents\Visual Studio 2015\Projects\Carrick\Carrick.WebClient\bin\AngularJSAuthentication.Web.dll.config
-C:\Users\WilstonScoutGroup\Documents\Visual Studio 2015\Projects\Carrick\Carrick.WebClient\bin\AngularJSAuthentication.Web.dll
-C:\Users\WilstonScoutGroup\Documents\Visual Studio 2015\Projects\Carrick\Carrick.WebClient\bin\AngularJSAuthentication.Web.pdb
-C:\Users\WilstonScoutGroup\Documents\Visual Studio 2015\Projects\Carrick\Carrick.WebClient\obj\Debug\Carrick.WebClient.Web.csprojResolveAssemblyReference.cache
-C:\Users\WilstonScoutGroup\Documents\Visual Studio 2015\Projects\Carrick\Carrick.WebClient\obj\Debug\AngularJSAuthentication.Web.dll
-C:\Users\WilstonScoutGroup\Documents\Visual Studio 2015\Projects\Carrick\Carrick.WebClient\obj\Debug\AngularJSAuthentication.Web.pdb

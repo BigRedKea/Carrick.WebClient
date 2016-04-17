@@ -1,0 +1,143 @@
+﻿<div class="panel panel-primary">
+
+    <div class="panel-heading">{{item.EventName}}</div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" id="DetailForm" name="DetailForm">
+
+            <div class="form-group">
+                <label for="Id" class="col-sm-3 control-label">Id</label>
+                <div class="col-sm-6">
+                    <input id="Id" name="Id" class="form-control"
+                           value="{{item.Id}}"
+                           ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="RowGuid" class="col-sm-3 control-label">Row Guid</label>
+                <div class="col-sm-6">
+                    <input id="RowGuid" name="RowGuid" class="form-control"
+                           value="{{item.RowGuid}}"
+                           ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="RowCreated" class="col-sm-3 control-label">Row Created</label>
+                <div class="col-sm-6">
+                    <input id="RowCreated" name="RowCreated" class="form-control"
+                           value="{{item.RowCreated | date:'yyyy-MMM-dd HH:mm:ss'}}"
+                           ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="RowLastUpdated" class="col-sm-3 control-label">Row Last Updated</label>
+                <div class="col-sm-6">
+                    <input id="RowLastUpdated" name="RowLastUpdated" class="form-control"
+                           value="{{item.RowLastUpdated|date:'yyyy-MMM-dd HH:mm:ss'}}"
+                           ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label for="RowDeleted" class="col-sm-3 control-label">Row Deleted</label>
+                <div class="col-sm-6">
+                    <input id="RowDeleted" name="RowDeleted" class="form-control"
+                           value="{{item.RowDeleted|date:'yyyy-MMM-dd HH:mm:ss'}}"
+                           ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="EventName" class="col-sm-3 control-label">Event Name</label>
+                <div class="col-sm-6">
+                    <input type="text" id="EventName" name="EventName" class="form-control"
+                           ng-model="item.EventName" ng-required="true" placeholder="EventName"/>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label for="StartDateTime" class="col-sm-3 control-label">Start</label>
+                <div class="col-sm-6">
+                    <input id="StartDateTime" name="StartDateTime" class="form-control"
+                           value="{{item.StartDateTime|date:'yyyy-MMM-dd HH:mm:ss'}}"
+                           ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label for="FinishDateTime" class="col-sm-3 control-label">Finish</label>
+                <div class="col-sm-6">
+                    <input id="FinishDateTime" name="FinishDateTime" class="form-control"
+                           value="{{item.FinishDateTime|date:'yyyy-MMM-dd HH:mm:ss'}}"
+                           ng-disabled="true"/>
+                </div>
+            </div>
+
+
+            <div class="form-group has-feedback">
+                <label for="ClosingDateTime" class="col-sm-3 control-label">Closing Date</label>
+                <div class="col-sm-6">
+                    <input id="ClosingDateTime" name="ClosingDateTime" class="form-control"
+                           value="{{item.ClosingDateTime|date:'yyyy-MMM-dd HH:mm:ss'}}"
+                           ng-disabled="true"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="PatrolCampOrHike" class="col-sm-3 control-label">Patrol Camp or Hike</label>
+                <div class="col-sm-6">
+                    <input type="checkbox" id="PatrolCampOrHike" name="PatrolCampOrHike" class="form-control"
+                           data-ng-model="item.PatrolCampOrHike" placeholder="PatrolCampOrHike"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="NominalKmWalked" class="col-sm-3 control-label">Nominal Km Walked</label>
+                <div class="col-sm-6">
+                    <input type="text" id="NominalKmWalked" name="NominalKmWalked" class="form-control"
+                           data-ng-model="item.NominalKmWalked" placeholder="0"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="NightsUnderCanvas" class="col-sm-3 control-label">Nights Under Canvas</label>
+                <div class="col-sm-6">
+                    <input type="text" id="NightsUnderCanvas" name="NightsUnderCanvas" class="form-control"
+                           data-ng-model="item.NightsUnderCanvas" placeholder="0"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="Walkabout" class="col-sm-3 control-label">Walkabout</label>
+                <div class="col-sm-6">
+                    <input type="text" id="Walkabout" name="Walkabout" class="form-control"
+                           data-ng-model="item.Walkabout"  placeholder="0"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-3 col-md-offset-3 col-sm-3 col-sm-offset-3 ">
+                    <button id="cancelSave" name="cancelSave" class="btn btn-warning"
+                            ng-click="cancel()"><i class="glyphicon glyphicon-thumbs-down"></i> Cancel
+                    </button>
+
+                    <button id="submitButton" name="submitButton" class="btn btn-primary"
+                            ng-click="saveItem()"><i class="glyphicon glyphicon-thumbs-up"></i> Save
+                    </button>
+
+                    <button id="deleteButton" name="submitForm" class="btn btn-danger"
+                            ng-show="isEdit"
+                            ng-click="modalDelete('md',item)">
+                        <i class="glyphicon glyphicon-trash"></i> Delete
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
